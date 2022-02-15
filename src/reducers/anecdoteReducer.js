@@ -75,4 +75,11 @@ export const createAnecdote = (content) => {
   };
 };
 
+export const vote = (id, newObj) => {
+  return async (dispatch) => {
+    await anecdoteService.update(id, newObj);
+    dispatch(voteOnAnecdote(id));
+  };
+};
+
 export default anecdoteSlice.reducer;
