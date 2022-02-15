@@ -44,6 +44,16 @@ const anecdoteSlice = createSlice({
         anecdote.id !== id ? anecdote : likedAnecdote
       );
     },
+    filterList(state, action) {
+      const search = action.payload;
+      if (search !== "") {
+        const filtered = state.filter((s) => {
+          return s.content.toLowerCase().includes(search.toLowerCase());
+        });
+        return filtered;
+      }
+      return state;
+    },
   },
 });
 

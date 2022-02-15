@@ -1,17 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const anecdotes = useSelector((state) => state.anecdotes);
 
   const handleChange = (event) => {
     const content = event.target.value;
     dispatch({
-      type: "filter/filterList",
-      payload: {
-        search: content,
-        state: anecdotes,
-      },
+      type: "anecdote/filterList",
+      payload: content,
     });
   };
   const style = {
